@@ -4,9 +4,18 @@ using namespace std;
 
 class game {
 private:
-    string name;
     int difficulty;
 public:
     void startGame();
     void endGame();
+};
+
+
+class player {
+private:
+    string name;
+    int score;
+public:
+    void addScore(int points);
+    void reduceScore(int reduction);
 };
