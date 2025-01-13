@@ -9,3 +9,7 @@ void player::addScore(int points){
 void player::reduceScore(int reduction){
     score -= reduction;
 }
+
+int player::getScore(){
+    return score;
+}

@@ -18,4 +18,22 @@ private:
 public:
     void addScore(int points);
     void reduceScore(int reduction);
+    int getScore();
+
+};
+
+class batting {
+private:
+
+public:
+    void countdown();
+};
+
+
+class timer {
+private:
+
+public:
+    
+    
 };
