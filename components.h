@@ -19,6 +19,7 @@ public:
     void addScore(int points);
     void reduceScore(int reduction);
     int getScore();
+    void setName(string name);
 
 };
 
@@ -34,6 +35,6 @@ class timer {
 private:
 
 public:
-    
+
     
 };

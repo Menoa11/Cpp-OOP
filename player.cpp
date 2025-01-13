@@ -13,3 +13,7 @@ void player::reduceScore(int reduction){
 int player::getScore(){
     return score;
 }
+
+void player::setName(string newName){
+    name = newName;
+}
