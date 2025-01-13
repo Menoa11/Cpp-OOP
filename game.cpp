@@ -21,14 +21,13 @@ void game::startGame() {
     cout << "Choose a difficulty level (1 = Easy, 2 = Medium, 3 = Hard): ";
     cin >> chosenDifficulty;
     setDifficulty(chosenDifficulty);
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "Get ready for the first pitch!" << endl;
 
     batting batterUp;
 
-    for (int i = 0; i < 5; i++){
-        //countdown
+    for (int i = 0; i < 5; i++){ 
+        batterUp.countdown();
         //print number 0-9 after random time between 0-5s
         //calculate time after displayed number was touched
         //say score and then add score to total

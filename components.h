@@ -33,6 +33,8 @@ private:
 
 public:
     void countdown();
+    bool pitchBall();
+    void hitOrMiss();
 };
 
 
