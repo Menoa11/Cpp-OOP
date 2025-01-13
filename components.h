@@ -5,9 +5,14 @@ using namespace std;
 class game {
 private:
     int difficulty;
+    int numRounds;
 public:
     void startGame();
     void endGame();
+    void setDifficulty(int level);
+    void setNumRounds(int rounds);
+    void displayInstructions();
+    void displayLeaderboard();
 };
 
 
