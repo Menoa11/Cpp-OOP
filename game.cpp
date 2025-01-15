@@ -10,7 +10,7 @@ void game::startGame() {
     string playerName;
     getline(cin, playerName);
 
-    player player1;
+    batting player1;
     player1.setName(playerName);
 
     cout << "Hello, " << playerName << "! You are up to bat." << endl;
@@ -24,10 +24,9 @@ void game::startGame() {
 
     cout << "Get ready for the first pitch!" << endl;
 
-    batting batterUp;
 
     for (int i = 0; i < 5; i++){ 
-        batterUp.pitchBall();
+        player1.pitchBall();
     }
 }
 

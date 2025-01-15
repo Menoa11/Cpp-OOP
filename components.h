@@ -3,19 +3,6 @@
 using namespace std;
 #include <chrono>
 
-class game {
-private:
-    int difficulty;
-    int numRounds;
-public:
-    void startGame();
-    void endGame();
-    void setDifficulty(int level);
-    void setNumRounds(int rounds);
-    void displayInstructions();
-    void displayLeaderboard();
-};
-
 
 class player {
 private:
@@ -29,13 +16,26 @@ public:
 
 };
 
-class batting {
+class game : public player {
+private:
+    int difficulty;
+    int numRounds;
+public:
+    void startGame();
+    void endGame();
+    void setDifficulty(int level);
+    void setNumRounds(int rounds);
+    void displayInstructions();
+    void displayLeaderboard();
+};
+
+class batting : public player {
 private:
 
 public:
     void countdown();
     bool pitchBall();
-    void hitOrMiss();
+    void hitOrMiss(long double hit);
 };
 
 
