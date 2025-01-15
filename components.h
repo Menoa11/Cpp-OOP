@@ -1,6 +1,7 @@
 #pragma once
 
 using namespace std;
+#include <chrono>
 
 class game {
 private:
@@ -40,8 +41,14 @@ public:
 
 class timer {
 private:
+    std::chrono::high_resolution_clock::time_point startTime;
+    std::chrono::high_resolution_clock::time_point endTime;
+    long double elapsedTime; 
 
 public:
-
+    timer();
+    void start();
+    void stop();
+    long double getElapsedTime();
     
 };

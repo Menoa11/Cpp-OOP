@@ -27,11 +27,7 @@ void game::startGame() {
     batting batterUp;
 
     for (int i = 0; i < 5; i++){ 
-        batterUp.countdown();
-        //print number 0-9 after random time between 0-5s
-        //calculate time after displayed number was touched
-        //say score and then add score to total
-        //next pitch
+        batterUp.pitchBall();
     }
 }
 
