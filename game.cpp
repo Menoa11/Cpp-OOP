@@ -3,6 +3,9 @@
 #include <string>
 using namespace std;
 
+
+double game::difficulty = 0.0;
+
 void game::startGame() {
     cout << "Welcome to the Reaction Time Baseball Game!" << endl;
     cout << "What's your player's name?" << endl;
@@ -17,10 +20,11 @@ void game::startGame() {
 
     displayInstructions();
 
-    int chosenDifficulty;
-    cout << "Choose a difficulty level (1 = Easy, 2 = Medium, 3 = Hard): ";
+    double chosenDifficulty;
+    cout << "Choose a difficulty level (Reaction time between 0.1-1.0 seconds): ";
     cin >> chosenDifficulty;
     setDifficulty(chosenDifficulty);
+    
 
     cout << "Get ready for the first pitch!" << endl;
 
@@ -51,12 +55,15 @@ void game::displayInstructions() {
     cout << "Good luck!\n" << endl;
 }
 
-void game::setDifficulty(int level) {
-    if (level < 1 || level > 3) {
-        cout << "Invalid difficulty level. Setting to Easy (1) by default." << endl;
-        difficulty = 1;
+void game::setDifficulty(double level) {
+    if (level > 1.0) {
+        cout << "Invalid difficulty level. Setting to Easy 0.5s by default." << endl;
+        difficulty = 0.5;
     } else {
         difficulty = level;
     }
-    cout << "Difficulty set to " << (difficulty == 1 ? "Easy" : difficulty == 2 ? "Medium" : "Hard") << "." << endl;
+}
+
+double game::getDifficulty(){
+    return difficulty;
 }

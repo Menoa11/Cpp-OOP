@@ -17,24 +17,25 @@ public:
 
 class game : public player {
 private:
-    int difficulty;
     int numRounds;
+    static double difficulty;
 public:
     void startGame();
     void endGame();
-    void setDifficulty(int level);
+    void setDifficulty(double level);
+    double getDifficulty();
     void setNumRounds(int rounds);
     void displayInstructions();
     void displayLeaderboard();
 };
 
-class batting : public player {
+class batting : public game {
 private:
 
 public:
     void countdown();
     bool pitchBall();
-    void hitOrMiss(long double hit);
+    void hitOrMiss(bool hit);
 };
 
 
@@ -49,5 +50,4 @@ public:
     void start();
     void stop();
     long double getElapsedTime();
-    
 };

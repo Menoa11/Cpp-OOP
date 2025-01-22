@@ -15,7 +15,7 @@ void batting::countdown() {
     }
 }
 
-void batting::hitOrMiss(long double hit) {
+void batting::hitOrMiss(bool hit) {
     if (hit) {
         cout << "It's a hit! You earn 10 points." << endl;
         addScore(10); 
@@ -45,16 +45,16 @@ bool batting::pitchBall() {
     while (!swingComplete) {
         if (cin.peek() == '\n') {  
             cin.get();  // Consume the newline character
-            t.stop();   // Stop the timer
             swingComplete = true;
         }
     }
 
+    t.stop();
+
     long double reactionTime = t.getElapsedTime(); 
 
-    double threshold = 0.75; 
+    bool hit = reactionTime <= getDifficulty();
 
-    bool hit = reactionTime <= threshold;
     hitOrMiss(hit); 
 
     cout << "Your reaction time was " << reactionTime << " seconds." << endl;
