@@ -26,7 +26,14 @@ void game::startGame() {
 
 
     for (int i = 0; i < 5; i++){ 
+        string userinput;
         player1.pitchBall();
+        cout << "Are you ready for the next pitch? (y/n)" << endl;
+        cin >> userinput;
+        if (userinput == "n"){
+            break;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Clears the input buffer
     }
 }
 

@@ -36,21 +36,21 @@ bool batting::pitchBall() {
 
     timer t;
     t.start();
+    
+    // Clear any remaining characters in the input buffer
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
 
-    //Needed to be implemented to ensure the input buffer wasnt messing with the reaction time
-    bool swingComplete = false;
+    // Wait for Enter key press
+    static bool swingComplete = false;
     while (!swingComplete) {
         if (cin.peek() == '\n') {  
-            cin.get();  
-            t.stop(); 
+            cin.get();  // Consume the newline character
+            t.stop();   // Stop the timer
             swingComplete = true;
         }
     }
 
     long double reactionTime = t.getElapsedTime(); 
-
-    //need to add difficulty variations to this portion such as 0.25,0.5 and 0.75
 
     double threshold = 0.75; 
 
@@ -58,5 +58,6 @@ bool batting::pitchBall() {
     hitOrMiss(hit); 
 
     cout << "Your reaction time was " << reactionTime << " seconds." << endl;
+
     return hit;
 }

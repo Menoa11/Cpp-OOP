@@ -13,7 +13,6 @@ public:
     void reduceScore(int reduction);
     int getScore();
     void setName(string name);
-
 };
 
 class game : public player {
