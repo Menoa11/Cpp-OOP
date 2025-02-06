@@ -2,8 +2,6 @@
 #include "components.h"
 #include <string>
 
-using namespace std;
-
 int main(){
     
     game newGame;

@@ -1,18 +1,18 @@
 #pragma once
 
-using namespace std;
 #include <chrono>
 
+#define print(x) std::cout << x << std::endl
 
 class player {
 private:
-    string name;
+    std::string name;
     int score;
 public:
     void addScore(int points);
     void reduceScore(int reduction);
     int getScore();
-    void setName(string name);
+    void setName(std::string name);
 };
 
 class game : public player {

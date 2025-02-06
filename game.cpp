@@ -1,63 +1,62 @@
 #include <iostream>
 #include "components.h"
 #include <string>
-using namespace std;
 
 
 double game::difficulty = 0.0;
 
 void game::startGame() {
-    cout << "Welcome to the Reaction Time Baseball Game!" << endl;
-    cout << "What's your player's name?" << endl;
+    print("Welcome to the Reaction Time Baseball Game!");
+    print("What's your player's name?");
 
-    string playerName;
-    getline(cin, playerName);
+    std::string playerName;
+    std::getline(std::cin, playerName);
 
     batting player1;
     player1.setName(playerName);
 
-    cout << "Hello, " << playerName << "! You are up to bat." << endl;
+    std::cout << "Hello, " << playerName << "! You are up to bat." << std::endl;
 
     displayInstructions();
 
     double chosenDifficulty;
-    cout << "Choose a difficulty level (Reaction time between 0.1-1.0 seconds): ";
-    cin >> chosenDifficulty;
+    print("Choose a difficulty level (Reaction time between 0.1-1.0 seconds): ");
+    std::cin >> chosenDifficulty;
     setDifficulty(chosenDifficulty);
     
 
-    cout << "Get ready for the first pitch!" << endl;
+    print("Get ready for the first pitch!");
 
 
     for (int i = 0; i < 5; i++){ 
-        string userinput;
+        std::string userinput;
         player1.pitchBall();
-        cout << "Are you ready for the next pitch? (y/n)" << endl;
-        cin >> userinput;
+        print("Are you ready for the next pitch? (y/n)");
+        std::cin >> userinput;
         if (userinput == "n"){
             break;
         }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Clears the input buffer
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //Clears the input buffer
     }
 }
 
 void game::endGame() {
-    cout << "Thank you for playing the Reaction Time Baseball Game!" << endl;
-    cout << "See you next time!" << endl;
+    print("Thank you for playing the Reaction Time Baseball Game!");
+    print("See you next time!");
 }
 
 void game::displayInstructions() {
-    cout << "\nInstructions:" << endl;
-    cout << "1. Get ready when the countdown starts." << endl;
-    cout << "2. Swing as soon as you see the pitch!" << endl;
-    cout << "3. The faster you react, the more points you earn." << endl;
-    cout << "4. Try to beat your friends' scores!" << endl;
-    cout << "Good luck!\n" << endl;
+    print("\nInstructions:");
+    print("1. Get ready when the countdown starts.");
+    print("2. Swing as soon as you see the pitch!" );
+    print("3. The faster you react, the more points you earn.");
+    print("4. Try to beat your friends' scores!");
+    print("Good luck!\n");
 }
 
 void game::setDifficulty(double level) {
     if (level > 1.0) {
-        cout << "Invalid difficulty level. Setting to Easy 0.5s by default." << endl;
+        print("Invalid difficulty level. Setting to Easy 0.5s by default.");
         difficulty = 0.5;
     } else {
         difficulty = level;

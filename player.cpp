@@ -1,6 +1,5 @@
 #include <iostream>
 #include "components.h"
-using namespace std;
 
 void player::addScore(int points){
     score += points;
@@ -14,6 +13,6 @@ int player::getScore(){
     return score;
 }
 
-void player::setName(string newName){
+void player::setName(std::string newName){
     name = newName;
 }

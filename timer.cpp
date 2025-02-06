@@ -1,7 +1,6 @@
 #include <iostream>
 #include "components.h"
 #include <string>
-using namespace std;
 
 
 timer::timer() : elapsedTime(0.0) {} // Constructor to initialize elapsedTime for each instance of the class created (found online)

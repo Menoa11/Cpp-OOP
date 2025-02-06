@@ -4,23 +4,22 @@
 #include <chrono>
 #include <string>
 #include <cstdlib>
-using namespace std;
 
 
 void batting::countdown() {
-    cout << "Get ready to bat!" << endl;
+    print("Get ready to bat!");
     for (int i = 3; i > 0; --i) {
-        cout << i << "..." << endl;
-        this_thread::sleep_for(chrono::seconds(1));
+        std::cout << i << "..." << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
 
 void batting::hitOrMiss(bool hit) {
     if (hit) {
-        cout << "It's a hit! You earn 10 points." << endl;
+        print("It's a hit! You earn 10 points.");
         addScore(10); 
     } else {
-        cout << "You missed!" << endl;
+        print("You missed!");
     }
 }
 
@@ -29,22 +28,22 @@ bool batting::pitchBall() {
 
     srand(time(0)); 
     int randomDelay = 1 + rand() % 5; 
-    this_thread::sleep_for(chrono::seconds(randomDelay));
+    std::this_thread::sleep_for(std::chrono::seconds(randomDelay));
 
-    cout << "The pitcher throws the ball!" << endl;
-    cout << "Press Enter to swing as quickly as possible!" << endl;
+    print("The pitcher throws the ball!");
+    print("Press Enter to swing as quickly as possible!");
 
     timer t;
     t.start();
     
     // Clear any remaining characters in the input buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     // Wait for Enter key press
     static bool swingComplete = false;
     while (!swingComplete) {
-        if (cin.peek() == '\n') {  
-            cin.get();  // Consume the newline character
+        if (std::cin.peek() == '\n') {  
+            std::cin.get();  // Consume the newline character
             swingComplete = true;
         }
     }
@@ -57,7 +56,7 @@ bool batting::pitchBall() {
 
     hitOrMiss(hit); 
 
-    cout << "Your reaction time was " << reactionTime << " seconds." << endl;
+    std::cout << "Your reaction time was " << reactionTime << " seconds." << std::endl;
 
     return hit;
 }
